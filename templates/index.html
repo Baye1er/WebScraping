@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+   Accommodation Page
+{% endblock %}
+{% block page_content %}
+<div class="view_pop">
+   <a class="btn" href="{{ url_for('.immigres') }}">% d'immigres par ville</a>
+</div>
+<div class="view_cost">
+   <a class="btn" href="{{ url_for('.cout') }}">Cout de la vie par ville</a>
+</div>
+<div class="row" style="margin-top:20px; margin-left:210px">
+   <div class="col-8">
+      <h2>Les villes qui comptent le plus de logements HLM en 2018 en France</h2>
+      <br>
+      <table class="table table-hover table-dark">
+         <thead>
+         <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">Rang</th>
+            <th scope="col">Ville</th>
+            <th scope="col">Taux de HLM (%)</th>
+         </tr>
+         </thead>
+         <tbody>
+         <!-- Your rows inside the table HERE: -->
+         {% for item in items %}
+         <tr>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+         </tr>
+         {% endfor %}
+         </tbody>
+      </table>
+   </div>
+</div>
+{% endblock %}

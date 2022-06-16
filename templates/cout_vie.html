@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+   Cost of life Page
+{% endblock %}
+{% block page_content %}
+<div class="view_pop">
+   <a class="btn" href="{{ url_for('.home') }}">->Back</a>
+</div>
+<div class="row" style="margin-top:20px; margin-left:210px">
+   <div class="col-8">
+       <h2>Classement des 47 villes étudiantes par coût moyen du loyer</h2>
+       <br>
+      <table class="table table-hover table-dark">
+         <thead>
+            <tr>
+               <!-- Your Columns HERE -->
+               <th scope="col">Classement</th>
+               <th scope="col">Ville</th>
+               <th scope="col">Cout</th>
+            </tr>
+         </thead>
+         <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for data in my_datas %}
+            <tr>
+               <td>{{ data[1] }}</td>
+               <td>{{ data[2] }}</td>
+               <td>{{ data[3] }}</td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </div>
+</div>
+{% endblock %}
